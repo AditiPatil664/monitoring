@@ -1,5 +1,7 @@
-FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} monitoring-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/monitoring-0.0.1-SNAPSHOT.jar"]
+From openjdk
+ 
+EXPOSE 8080
+ 
+ADD target/spring-docker-ec2-0.0.1.jar spring-docker-ec2-0.0.1.jar
+ 
+ENTRYPOINT ["java","-jar","spring-docker-ec2-0.0.1.jar"]
